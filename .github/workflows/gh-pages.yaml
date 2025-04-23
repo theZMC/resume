@@ -1,3 +1,10 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]  # Or your default branch name
+  workflow_dispatch:    # Allows manual trigger from GitHub UI
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
