@@ -1,257 +1,483 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zach Callahan's Resume</title>
-  </head>
-  <body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: #555555;
+        }
+
+        body {
+            height: 100svh;
+            width: 100vw;
+            padding: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        body>header,
+        body>main,
+        body>footer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        body>header {
+            border-bottom: 1px solid #888888;
+        }
+
+        body>header>h1 {
+            text-align: center;
+        }
+
+        nav>ul {
+            display: flex;
+            gap: 16px;
+            padding: 0 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav>ul>li {
+            padding: 16px 0;
+        }
+
+        nav>ul>li>a {
+            border: 1px solid #888888;
+            border-bottom-width: 0;
+            border-radius: 8px 8px 0 0;
+            padding: 16px;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+
+        nav>ul>li>a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        section#objective,
+        section#certifications,
+        section#skills,
+        section#work-history {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #888888;
+        }
+
+        .skills-groups {
+            display: flex;
+        }
+
+        .skills-groups>article {
+            flex-grow: 1;
+            padding: 0 8px;
+        }
+
+        .skills-groups>article:nth-of-type(2) {
+            border: 1px solid #888888;
+            border-width: 0 1px;
+            padding: 0 16px;
+        }
+
+        .skills-groups>article:first-of-type {
+            padding-left: 0;
+        }
+
+        .skills-groups>article:last-of-type {
+            padding-right: 0;
+        }
+
+        section#work-history>article {
+            display: flex;
+            gap: 16px;
+        }
+
+        section#work-history>article>header {
+            text-align: right;
+            width: 200px;
+        }
+
+        section#work-history ul {
+            list-style: circle;
+            padding: 16px;
+        }
+
+        section>h2 {
+            border-left: 8px solid orange;
+            padding-left: 8px;
+        }
+
+        section#skills h3 {
+            color: teal;
+        }
+
+        footer {
+            padding-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer>h2 {
+            text-align: center;
+        }
+
+        @media (max-width: 430px) {
+            body>header {
+                border-bottom: none;
+            }
+
+            nav>ul {
+                gap: 8px;
+                flex-direction: column;
+            }
+
+            nav>ul>li {
+                padding: 0;
+            }
+
+            nav>ul>li>a {
+                border: none;
+                padding: 8px;
+                font-weight: bolder;
+                text-decoration: none;
+            }
+
+            nav>ul>li>a:hover {
+                color: #555555;
+                background-color: white;
+            }
+
+            section#work-history>article {
+                flex-direction: column;
+                border-bottom: 2px solid #888888;
+            }
+
+            section#work-history>article:last-of-type {
+                border-bottom: none;
+            }
+
+            section#work-history>article>header {
+                text-align: left;
+            }
+
+            .skills-groups {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .skills-groups>article {
+                border: 0;
+                padding: 0;
+            }
+
+            .skills-groups>article:nth-of-type(2) {
+                border: 0;
+                padding: 0;
+            }
+        }
+
+        @media print {
+            * {
+                border: none !important;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section#work-history>article {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <header>
-      <h1>Zach Callahan's Resume</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#work-history">Work History</a>
-          </li>
-          <li>
-            <a href="#certifications">Certifications</a>
-          </li>
-          <li>
-            <a href="#objective">Objective</a>
-          </li>
-        </ul>
-      </nav>
+        <h1>Zach Callahan's Resume</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#objective">Objective</a>
+                </li>
+                <li>
+                    <a href="#certifications">Certifications</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#work-history">Work History</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
-      <section id="skills">
-        <h2>Skills</h2>
-        <article>
-          <h3>Programming Languages</h3>
-          <ul>
-            <li>Go</li>
-            <li>Java</li>
-            <li>TypeScript</li>
-          </ul>
-        </article>
-        <article>
-          <h3>DevOps Tools</h3>
-          <ul>
-            <li>Terraform</li>
-            <li>AWS</li>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-            <li>GitLab</li>
-          </ul>
-        </article>
-        <article>
-          <h3>Operating Systems</h3>
-          <ul>
-            <li>Linux</li>
-            <li>Windows</li>
-          </ul>
-        </article>
-      </section>
-      <section id="work-history">
-        <h2>Work History</h2>
-        <article>
-          <header>
-            <h3>Senior DevSecOps Engineer</h3>
-            <address>
-              <p>Bridgephase, LLC</p>
-              <p>Remote</p>
-            </address>
-            <p>
-              <time datetime="2024-08"> August 2024 </time>
-              to Present
-            </p>
-          </header>
-          <section>
-            <h4>Responsibilities</h4>
-            <ul>
-              <li>Designed and implemented CI/CD pipelines</li>
-              <li>Automated infrastructure provisioning</li>
-              <li>Managed cloud resources and services</li>
-              <li>Ensured security compliance and best practices</li>
-            </ul>
-          </section>
-          <section>
-            <h4>Technologies</h4>
-            <ul>
-              <li>Go</li>
-              <li>Java</li>
-              <li>Kubernetes</li>
-              <li>Terraform</li>
-              <li>AWS</li>
-              <li>Docker</li>
-              <li>GitLab</li>
-            </ul>
-          </section>
-        </article>
-        <article>
-          <header>
-            <h3>Software Engineer</h3>
-            <address>
-              <p>First Orion Corp</p>
-              <p>North Little Rock, AR</p>
-            </address>
-            <p>
-              <time datetime="2021-01">January 2021</time>
-              to
-              <time datetime="2024-08">August 2024</time>
-            </p>
-          </header>
-          <section>
-            <h4>Responsibilities</h4>
-            <ul>
-              <li>Developed and maintained software applications</li>
-              <li>Collaborated with cross-functional teams</li>
-              <li>Participated in code reviews and testing</li>
-              <li>Implemented security best practices</li>
-            </ul>
-          </section>
-          <section>
-            <h4>Technologies</h4>
-            <ul>
-              <li>Go</li>
-              <li>Terraform</li>
-              <li>AWS</li>
-              <li>Docker</li>
-              <li>Kubernetes</li>
-            </ul>
-          </section>
-        </article>
-        <article>
-          <header>
-            <h3>System Administrator</h3>
-            <address>
-              <p>Dillard's Inc</p>
-              <p>Little Rock, AR</p>
-            </address>
-            <p>
-              <time datetime="2020-04">April 2020</time>
-              to
-              <time datetime="2021-01">January 2021</time>
-            </p>
-          </header>
-          <section>
-            <h4>Responsibilities</h4>
-            <ul>
-              <li>Managed and maintained server infrastructure</li>
-              <li>Provided technical support to users</li>
-              <li>Implemented security measures</li>
-              <li>Monitored system performance</li>
-            </ul>
-          </section>
-          <section>
-            <h4>Technologies</h4>
-            <ul>
-              <li>Linux</li>
-              <li>Networking</li>
-              <li>Virtualization</li>
-              <li>Web Servers</li>
-              <li>Database Management</li>
-              <li>Security</li>
-              <li>CI/CD Pipelines</li>
-              <li>Monitoring Tools</li>
-            </ul>
-          </section>
-        </article>
-        <article>
-          <header>
-            <h3>General Manager</h3>
-            <address>
-              <p>Love's Travel Stops</p>
-              <p>Various, AR and OK</p>
-            </address>
-            <p>
-              <time datetime="2017-09">September 2017</time>
-              to
-              <time datetime="2020-04">April 2020</time>
-            </p>
-          </header>
-          <section>
-            <h4>Responsibilities</h4>
-            <ul>
-              <li>Managed daily operations of the store</li>
-              <li>Supervised staff and ensured customer satisfaction</li>
-              <li>Implemented sales strategies and promotions</li>
-              <li>Maintained inventory and financial records</li>
-              <li>Ensured compliance with health and safety regulations</li>
-            </ul>
-          </section>
-        </article>
-        <article>
-          <header>
-            <h3>Assistant Store Manager</h3>
-            <address>
-              <p>Walmart Stores Inc</p>
-              <p>Fort Smith, AR</p>
-            </address>
-            <p>
-              <time datetime="10-2008">October 2008</time>
-              to
-              <time datetime="2017-09">September 2017</time>
-            </p>
-          </header>
-          <section>
-            <h4>Responsibilities</h4>
-            <ul>
-              <li>Assisted in managing store operations</li>
-              <li>Trained and supervised staff</li>
-              <li>Ensured compliance with company policies</li>
-              <li>Handled customer inquiries and complaints</li>
-              <li>Maintained inventory and merchandising standards</li>
-            </ul>
-          </section>
-        </article>
-      </section>
-      <section id="certifications">
-        <h2>Certifications</h2>
-        <article>
-          <h3>Certified Kubernetes Administrator (CKA)</h3>
-          <p>Issued by The Linux Foundation</p>
-          <p>
-            <time datetime="2022-11">November 2022</time>
-            to
-            <time datetime="2025-11">November 2025</time>
-          </p>
-        </article>
-        <article>
-          <h3>Certified Kubernetes Security Specialist (CKS)</h3>
-          <p>Issued by The Linux Foundation</p>
-          <p>
-            <time datetime="2025-02">February 2025</time>
-            to
-            <time datetime="2027-02">February 2027</time>
-          </p>
-        </article>
-        <article>
-          <h3>AWS Certified Solutions Architect - Associate</h3>
-          <p>Issued by Amazon Web Services</p>
-          <p>
-            <time datetime="2023-07">July 2023</time>
-            to
-            <time datetime="2026-07">July 2026</time>
-          </p>
-        </article>
-      </section>
-      <section id="objective">
-        <h2>Objective</h2>
-        <article>
-          <p>
-            Seeking a challenging position in a dynamic organization where I can
-            utilize my skills and experience to contribute to the success of the
-            team and grow professionally.
-          </p>
-        </article>
-      </section>
+        <section id="objective">
+            <h2>Objective</h2>
+            <article>
+                <p>
+                    Seeking a challenging position in a dynamic organization where I can
+                    utilize my skills and experience to contribute to the success of the
+                    team and grow professionally.
+                </p>
+            </article>
+        </section>
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <article>
+                <h3>Certified Kubernetes Administrator (CKA)</h3>
+                <p>Issued by The Linux Foundation</p>
+                <p>
+                    <time datetime="2022-11">November 2022</time>
+                    to
+                    <time datetime="2025-11">November 2025</time>
+                </p>
+            </article>
+            <article>
+                <h3>Certified Kubernetes Security Specialist (CKS)</h3>
+                <p>Issued by The Linux Foundation</p>
+                <p>
+                    <time datetime="2025-02">February 2025</time>
+                    to
+                    <time datetime="2027-02">February 2027</time>
+                </p>
+            </article>
+            <article>
+                <h3>AWS Certified Solutions Architect - Associate</h3>
+                <p>Issued by Amazon Web Services</p>
+                <p>
+                    <time datetime="2023-07">July 2023</time>
+                    to
+                    <time datetime="2026-07">July 2026</time>
+                </p>
+            </article>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-groups">
+                <article>
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Go</li>
+                        <li>Java</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>DevOps Tools</h3>
+                    <ul>
+                        <li>Kubernetes</li>
+                        <li>AWS</li>
+                        <li>Docker</li>
+                        <li>Terraform</li>
+                        <li>GitLab</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Operating Systems</h3>
+                    <ul>
+                        <li>Linux</li>
+                        <li>AIX</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        <section id="work-history">
+            <h2>Work History</h2>
+            <article>
+                <header>
+                    <h3>Senior DevSecOps Engineer</h3>
+                    <address>
+                        <p>Bridgephase, LLC</p>
+                        <p>Remote</p>
+                    </address>
+                    <p>
+                        <time datetime="2024-08"> August 2024 </time>
+                        to Present
+                    </p>
+                </header>
+                <div class="job-details">
+                    <section>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Designed and implemented CI/CD pipelines</li>
+                            <li>Automated infrastructure provisioning</li>
+                            <li>Managed cloud resources and services</li>
+                            <li>Ensured security compliance and best practices</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>Go</li>
+                            <li>Java</li>
+                            <li>Kubernetes</li>
+                            <li>Terraform</li>
+                            <li>AWS</li>
+                            <li>Docker</li>
+                            <li>GitLab</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <header>
+                    <h3>Software Engineer</h3>
+                    <address>
+                        <p>First Orion Corp</p>
+                        <p>North Little Rock, AR</p>
+                    </address>
+                    <p>
+                        <time datetime="2021-01">January 2021</time>
+                        to
+                        <time datetime="2024-08">August 2024</time>
+                    </p>
+                </header>
+                <div class="job-details">
+                    <section>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Developed and maintained software applications</li>
+                            <li>Collaborated with cross-functional teams</li>
+                            <li>Participated in code reviews and testing</li>
+                            <li>Implemented security best practices</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>Go</li>
+                            <li>Terraform</li>
+                            <li>AWS</li>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <header>
+                    <h3>System Administrator</h3>
+                    <address>
+                        <p>Dillard's Inc</p>
+                        <p>Little Rock, AR</p>
+                    </address>
+                    <p>
+                        <time datetime="2020-04">April 2020</time>
+                        to
+                        <time datetime="2021-01">January 2021</time>
+                    </p>
+                </header>
+                <div class="job-details">
+                    <section>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Managed and maintained server infrastructure</li>
+                            <li>Provided technical support to users</li>
+                            <li>Implemented security measures</li>
+                            <li>Monitored system performance</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>Linux</li>
+                            <li>Networking</li>
+                            <li>Virtualization</li>
+                            <li>Web Servers</li>
+                            <li>Database Management</li>
+                            <li>Security</li>
+                            <li>CI/CD Pipelines</li>
+                            <li>Monitoring Tools</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <header>
+                    <h3>General Manager</h3>
+                    <address>
+                        <p>Love's Travel Stops</p>
+                        <p>Various, AR and OK</p>
+                    </address>
+                    <p>
+                        <time datetime="2017-09">September 2017</time>
+                        to
+                        <time datetime="2020-04">April 2020</time>
+                    </p>
+                </header>
+                <div class="job-details">
+                    <section>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Managed daily operations of the store</li>
+                            <li>Supervised staff and ensured customer satisfaction</li>
+                            <li>Implemented sales strategies and promotions</li>
+                            <li>Maintained inventory and financial records</li>
+                            <li>Ensured compliance with health and safety regulations</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <header>
+                    <h3>Assistant Store Manager</h3>
+                    <address>
+                        <p>Walmart Stores Inc</p>
+                        <p>Fort Smith, AR</p>
+                    </address>
+                    <p>
+                        <time datetime="10-2008">October 2008</time>
+                        to
+                        <time datetime="2017-09">September 2017</time>
+                    </p>
+                </header>
+                <div class="job-details">
+                    <section>
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Assisted in managing store operations</li>
+                            <li>Trained and supervised staff</li>
+                            <li>Ensured compliance with company policies</li>
+                            <li>Handled customer inquiries and complaints</li>
+                            <li>Maintained inventory and merchandising standards</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+        </section>
     </main>
     <footer>
-      <h2>Contact Information</h2>
-      <p>zach@zmc.dev</p>
+        <h2>Get In Touch</h2>
+        <p>
+            <a href="mailto:zach@zmc.dev">📧 zach@zmc.dev</a>
+            <a href="tel:4794595787">📞 (479) 459-5787</a>
+            <a href="https://zmc.dev">🌐 zmc.dev</a>
+        </p>
     </footer>
-  </body>
+</body>
+
 </html>
